@@ -10,5 +10,6 @@ dependencies = [
     "pdf2image>=1.17.0",
     "pydantic>=2.11.7",
     "pypdf2>=3.0.1",
+    "pytest>=8.4.1",
     "python-dotenv>=1.1.1",
 ]

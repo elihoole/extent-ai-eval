@@ -1,3 +1,4 @@
+import argparse
 import logging
 import os
 
@@ -27,14 +28,42 @@ def setup_logger(level=logging.INFO):
 logger = setup_logger(level=logging.DEBUG)
 
 
-def main(file_path=None):
+def main(
+    file_path=None, company_name_page_index=None, financial_highlights_page_index=None
+):
     if not file_path:
-        file_path = input("Enter the path to the PDF file: ")
+        parser = argparse.ArgumentParser(description="Extract data from PDF files")
+        parser.add_argument(
+            "--file_path",
+            type=str,
+            required=True,
+            help="Path to the PDF file to process",
+        )
+        parser.add_argument(
+            "--company_name_page_index",
+            type=int,
+            default=0,
+            help="Page index to extract company name from (default: 0)",
+        )
+        parser.add_argument(
+            "--financial_highlights_page_index",
+            type=int,
+            default=3,
+            help="Page index to extract financial highlights from (default: 3)",
+        )
+        args = parser.parse_args()
+        file_path = args.file_path
+        company_name_page_index = args.company_name_page_index
+        financial_highlights_page_index = args.financial_highlights_page_index
 
     logger.info(f"Starting extraction for file: {file_path}")
     # Copy file to input directory
     input_file_path = copy_to_input_dir(file_path)
-    results = run_pdf_extraction(input_file_path)
+    results = run_pdf_extraction(
+        input_file_path,
+        company_name_page_index=company_name_page_index,
+        financial_highlights_page_index=financial_highlights_page_index,
+    )
 
     if results:
         logger.info("Extraction completed successfully.")
@@ -47,4 +76,4 @@ def main(file_path=None):
 
 
 if __name__ == "__main__":
-    main(file_path="financial_statement (1).pdf")
+    main()
