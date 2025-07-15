@@ -1,0 +1,21 @@
+{
+    "report_year": 2025,
+    "metrics": [
+        {
+            "metric": "Consolidated Profit After Tax",
+            "change_percent": null,
+            "value_2025": 2200000000,
+            "value_2024": null
+        }
+    ],
+    "metadata": {
+        "currency": "Sri Lankan Rupees",
+        "year_end_date": "March 31, 2025",
+        "token_usage": {
+            "input_tokens": 666,
+            "output_tokens": 125,
+            "total_tokens": 3129
+        },
+        "company_name": "Ceylon\nInvestment PLC\nA Carson Cumberbatch Company\nAnnual Report 2024/25"
+    }
+}
