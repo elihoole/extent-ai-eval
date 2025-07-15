@@ -1,2 +1,8 @@
 *.pdf
 .venv
+.env
+output/
+input/
+__pycache__/
+*.pyc
+.json
